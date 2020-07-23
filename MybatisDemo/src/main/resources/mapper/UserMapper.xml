@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lbh.test.mybatis.dao.UserMapper">
+    <resultMap type="User" id="UserMap">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="getAllUser" resultType="com.lbh.test.mybatis.Model.User">
+        select * from user;
+    </select>
+    <select id="getUserByID" parameterType="INTEGER" resultType="com.lbh.test.mybatis.Model.User">
+        select *
+        from user
+        where 1=1
+            and id = #{id,jdbcType=INTEGER}
+    </select>
+</mapper>
